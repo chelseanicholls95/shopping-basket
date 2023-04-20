@@ -1,3 +1,5 @@
+/* default styles  */
+
 * {
   padding: 0;
   margin: 0;
@@ -9,6 +11,8 @@ body {
   font-size: 16px;
 }
 
+/* navbar styles */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,6 +23,7 @@ body {
   padding: 20px;
   padding-right: 40px;
   margin-bottom: 20px;
+  font-style: italic;
 }
 
 .basket {
@@ -39,4 +44,37 @@ body {
   font-size: 16px;
   padding: 3px;
   border-radius: 3px;
+}
+
+/* item card styles */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 223px);
+  gap: 30px;
+  justify-content: center;
+}
+
+.item {
+  border: 2px solid #22223b;
+}
+
+.details {
+  padding: 8px;
+}
+
+.details p {
+  font-style: italic;
+}
+
+.price-quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
 }
