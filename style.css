@@ -5,6 +5,16 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #22223b;
+  color: #f2e9e4;
+  font-size: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
