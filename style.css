@@ -86,6 +86,10 @@ body {
   gap: 10px;
 }
 
+.buttons:hover {
+  cursor: pointer;
+}
+
 /* media queries for responsive design  */
 
 @media (max-width: 1000px) {

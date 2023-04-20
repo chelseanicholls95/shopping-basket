@@ -71,9 +71,9 @@ const generateCards = () => {
       <div class="price-quantity">
         <h2>£${price}</h2>
         <div class="buttons">
-          <i class="bi bi-dash-lg"></i>
+          <i onclick="decreaseItemQuantity()" class="bi bi-dash-lg"></i>
           <div class="quantity">0</div>
-          <i class="bi bi-plus-lg"></i>
+          <i onclick="increaseItemQuantity()" class="bi bi-plus-lg"></i>
         </div>
       </div>
     </div>
@@ -82,4 +82,14 @@ const generateCards = () => {
     .join(""));
 };
 
-generateCards();
+const increaseItemQuantity = () => {
+  console.log("increase");
+};
+
+const decreaseItemQuantity = () => {
+  console.log("decrease");
+};
+
+const updateItemQuantity = () => {};
+
+document.onload = generateCards();
