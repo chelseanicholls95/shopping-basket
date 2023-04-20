@@ -85,3 +85,17 @@ body {
   display: flex;
   gap: 10px;
 }
+
+/* media queries for responsive design  */
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(2, 223px);
+  }
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: repeat(1, 223px);
+  }
+}
