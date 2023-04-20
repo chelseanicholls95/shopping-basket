@@ -12,9 +12,31 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-content: center;
   background-color: #22223b;
   color: #f2e9e4;
   font-size: 20px;
   padding: 20px;
+  padding-right: 40px;
   margin-bottom: 20px;
+}
+
+.basket {
+  position: relative;
+  font-size: 30px;
+  background-color: #f2e9e4;
+  color: #4a4e69;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.basketAmount {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #4a4e69;
+  color: #c9ada7;
+  font-size: 16px;
+  padding: 3px;
+  border-radius: 3px;
 }
