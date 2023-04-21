@@ -84,8 +84,6 @@ const generateCards = () => {
     .join(""));
 };
 
-document.onload = generateCards();
-
 const increaseItemQuantity = () => {
   const id = event.target.id;
 
@@ -100,6 +98,7 @@ const increaseItemQuantity = () => {
     item.quantity += 1;
   }
   updateItemQuantity(id, event);
+  updateBasket();
 };
 
 const decreaseItemQuantity = () => {
@@ -114,6 +113,7 @@ const decreaseItemQuantity = () => {
   } else return;
 
   updateItemQuantity(id, event);
+  updateBasket();
 };
 
 const updateItemQuantity = (id, event) => {
@@ -125,6 +125,18 @@ const updateItemQuantity = (id, event) => {
   quantityHTML.innerHTML = newQuantity;
 };
 
+const updateBasket = () => {
+  let total = 0;
+
+  basket.forEach((item) => {
+    return (total += item.quantity);
+  });
+
+  basketQuantity.innerHTML = total;
+};
+
+document.onload = generateCards();
+
 const increaseButton = document
   .querySelectorAll(".bi-plus-lg")
   .forEach((button) => button.addEventListener("click", increaseItemQuantity));
@@ -132,3 +144,5 @@ const increaseButton = document
 const decreaseButton = document
   .querySelectorAll(".bi-dash-lg")
   .forEach((button) => button.addEventListener("click", decreaseItemQuantity));
+
+const basketQuantity = document.getElementById("basketQuantity");
