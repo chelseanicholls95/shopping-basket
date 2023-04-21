@@ -89,34 +89,41 @@ document.onload = generateCards();
 const increaseItemQuantity = () => {
   const id = event.target.id;
 
-  const inBasket = basket.find((item) => item.id === id);
+  const item = basket.find((item) => item.id === id);
 
-  if (inBasket === undefined) {
+  if (item === undefined) {
     basket.push({
       id: id,
-      item: 1,
+      quantity: 1,
     });
   } else {
-    inBasket.item += 1;
+    item.quantity += 1;
   }
-  console.log(basket);
+  updateItemQuantity(id, event);
 };
 
 const decreaseItemQuantity = () => {
   const id = event.target.id;
 
-  const inBasket = basket.find((item) => item.id === id);
+  const item = basket.find((item) => item.id === id);
 
-  if (inBasket === undefined) {
+  if (item === undefined) {
     return;
-  } else if (inBasket.item != 0) {
-    inBasket.item -= 1;
+  } else if (item.quantity != 0) {
+    item.quantity -= 1;
   } else return;
 
-  console.log(basket);
+  updateItemQuantity(id, event);
 };
 
-const updateItemQuantity = () => {};
+const updateItemQuantity = (id, event) => {
+  const item = basket.find((item) => item.id === id);
+  const newQuantity = item.quantity;
+
+  const quantityHTML = event.target.parentElement.children[1];
+
+  quantityHTML.innerHTML = newQuantity;
+};
 
 const increaseButton = document
   .querySelectorAll(".bi-plus-lg")
