@@ -59,6 +59,8 @@ const itemsArray = [
   },
 ];
 
+const basket = [];
+
 const generateCards = () => {
   return (cardsDiv.innerHTML = itemsArray
     .map((item) => {
@@ -71,9 +73,9 @@ const generateCards = () => {
       <div class="price-quantity">
         <h2>£${price}</h2>
         <div class="buttons">
-          <i onclick="decreaseItemQuantity()" class="bi bi-dash-lg"></i>
+          <i class="bi bi-dash-lg" id="${id}"></i>
           <div class="quantity">0</div>
-          <i onclick="increaseItemQuantity()" class="bi bi-plus-lg"></i>
+          <i class="bi bi-plus-lg" id="${id}"></i>
         </div>
       </div>
     </div>
@@ -82,14 +84,44 @@ const generateCards = () => {
     .join(""));
 };
 
+document.onload = generateCards();
+
 const increaseItemQuantity = () => {
-  console.log("increase");
+  const id = event.target.id;
+
+  const inBasket = basket.find((item) => item.id === id);
+
+  if (inBasket === undefined) {
+    basket.push({
+      id: id,
+      item: 1,
+    });
+  } else {
+    inBasket.item += 1;
+  }
+  console.log(basket);
 };
 
 const decreaseItemQuantity = () => {
-  console.log("decrease");
+  const id = event.target.id;
+
+  const inBasket = basket.find((item) => item.id === id);
+
+  if (inBasket === undefined) {
+    return;
+  } else if (inBasket.item != 0) {
+    inBasket.item -= 1;
+  } else return;
+
+  console.log(basket);
 };
 
 const updateItemQuantity = () => {};
 
-document.onload = generateCards();
+const increaseButton = document
+  .querySelectorAll(".bi-plus-lg")
+  .forEach((button) => button.addEventListener("click", increaseItemQuantity));
+
+const decreaseButton = document
+  .querySelectorAll(".bi-dash-lg")
+  .forEach((button) => button.addEventListener("click", decreaseItemQuantity));
